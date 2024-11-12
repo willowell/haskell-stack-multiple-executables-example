@@ -1,0 +1,83 @@
+name:                multiple-executables-example
+version:             0.1.0.0
+github:              "githubuser/multiple-executables-example"
+license:             BSD-3-Clause
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2024 Author name here"
+
+extra-source-files:
+- README.md
+- CHANGELOG.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/multiple-executables-example#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- optparse-applicative
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: src
+
+executables:
+  multiple-executables-example-exe:
+    main:                app/Main.hs
+    #source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - multiple-executables-example
+  ex-01-exe:
+    main: app/ex01.hs
+    #source-dirs: app
+    dependencies:
+    - multiple-executables-example
+  baz-exe:
+    main: Main.hs
+    source-dirs: foo/bar/baz
+    dependencies:
+    - multiple-executables-example
+  bar-exe:
+    main: foo/bar/bar.hs
+    #source-dirs: foo/bar
+    dependencies:
+    - multiple-executables-example
+  year2015-day01:
+    main: solutions/year2015/day01.hs
+    dependencies:
+    - multiple-executables-example
+  year2020-day01:
+    main: solutions/year2015/day01.hs
+    dependencies:
+    - multiple-executables-example
+
+tests:
+  multiple-executables-example-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - multiple-executables-example
