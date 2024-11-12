@@ -67,7 +67,7 @@ executables:
     dependencies:
     - multiple-executables-example
   year2020-day01:
-    main: solutions/year2015/day01.hs
+    main: solutions/year2020/day01.hs
     dependencies:
     - multiple-executables-example
 
